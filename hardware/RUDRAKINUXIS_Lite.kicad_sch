@@ -1,0 +1,14 @@
+(kicad_sch
+  (version 20260101)
+  (generator "RUDRAKINUXIS_Setup")
+  (generator_version "10.0")
+  (paper "A3")
+  (title_block
+    (title "RUDRAKINUXIS_Lite - 500W/600W 4S-6S FOC BLDC Speed Controller")
+    (date "2026-09-10")
+    (rev "v1.0")
+    (company "Engineered by Ravi Kachhwaha")
+    (comment 1 "Operating Voltage: 12V-24V Nominal (4S-6S LiPo, 28V Max)")
+    (comment 2 "Dual Control: DroneCAN/DShot FC Link + Isolated USB-C Diagnostics + Hardware Test Mode")
+  )
+)
