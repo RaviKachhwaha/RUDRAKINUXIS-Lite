@@ -1,0 +1,42 @@
+Reference Designator,Manufacturer Part Number,Manufacturer Name,Description,Package / Footprint,Quantity,LCSC Part Number,KiCad Footprint
+U1,STM32G431CBU6,STMicroelectronics,"170MHz ARM Cortex-M4F MCU, Hardware CORDIC, Dual 12-Bit ADC, UFQFPN-48",UFQFPN-48 7x7mm,1,C529356,easyeda2kicad:STM32G431CBU6
+U2,DRV8300DPWR,Texas Instruments,"High-Current 100V 3-Phase Gate Driver, 750mA Source / 1500mA Sink, TSSOP-20",TSSOP-20 4.4x6.5mm P0.65,1,C3036056,easyeda2kicad:DRV8300DPWR
+U_10V,LMR36510ADDAR,Texas Instruments,Wide-input 65V 1A Synchronous Buck; regulates 10.0V GVDD rail,HSOIC-8 PowerPAD,1,C1858393,easyeda2kicad:LMR36510ADDAR
+U_5V,L78L05ABUTR,STMicroelectronics,"5V Auxiliary LDO powered from 10V rail for CAN VCC, SOT-89-3",SOT-89-3,1,C42738,easyeda2kicad:L78L05ABUTR
+U_3V3,AP2112K-3.3TRG1,Diodes Incorporated,"3.3V 600mA Low-Noise LDO from 5V for MCU & Logic, SOT-23-5",SOT-23-5,1,C51118,easyeda2kicad:AP2112K-3.3TRG1
+U4,CP2102N-A02-GQFN24R,Silicon Labs,"USB-to-UART Bridge Controller with Integrated Oscillator, QFN-24",QFN-24 4x4mm,1,C969151,easyeda2kicad:CP2102N-A02-GQFN24R
+U5,"TJA1051T/3,118",NXP Semiconductors,"High-Speed CAN FD Transceiver with 3.3V Logic IO, SOIC-8",SOIC-8,1,C58988,Package_SO:SOIC-8_3.9x4.9mm_P1.27mm
+U_ESD1,USBLC6-2SC6,STMicroelectronics,"Ultra-Low Capacitance (0.25pF) Dual-Line USB ESD Protection Array, SOT-23-6",SOT-23-6,1,C7519,Package_TO_SOT_SMD:SOT-23-6
+"Q1,Q2,Q3,Q4,Q5,Q6",NTMFS5H600NLT1G,onsemi,"60V 1.3mOhm N-Channel Power MOSFET, Logic Level, 5x6mm DFN",DFN-5 (5x6mm) / SO-8FL,6,C463882,easyeda2kicad:NTMFS5H600NLT1G
+J_USB,USB4105-GF-A,Global Connector Technology (GCT),16-Pin SMT USB Type-C Receptacle Port with Through-Hole Shell Shield Anchors,16-Pin SMT + Tabs,1,C3020560,easyeda2kicad:USB4105-GF-A
+J_FC,SM06B-SRSS-TB(LF)(SN),"J.S.T. Mfg. Co., Ltd. (JST)",6-Pin 1.0mm Pitch Shrouded Header for Flight Controller Interface (DroneCAN/DShot),1.0mm SMD (6-Pin),1,C160405,easyeda2kicad:SM06B-SRSS-TB_LF__SN_
+SW1,B3S-1000P,Omron Electronics,6.0x3.5mm Surface Mount Tactile Pushbutton (Hardware Autonomous Bench Test Mode),6.0x3.5mm SMD,1,C180420,easyeda2kicad:B3S-1000P
+L_GATE,CDRH105RNP-470NC,Sumida America,"47uH 2A Shielded Power Inductor for LMR36510 Buck Rail, 10x10mm SMD",SMD 10.2x10.0mm,1,C225032,easyeda2kicad:CDRH105RNP-470NC
+U_CAN_ESD,ESDCAN24-2BLY,STMicroelectronics,"Dual Automotive CAN Bus ESD & Surge Protection Diode, SOT-23",SOT-23,1,,Package_TO_SOT_SMD:SOT-23
+"R_S1,R_S2,R_S3",SCMM2512S5-0M50F,Delta Electronics / Cyntec,"0.0005 Ohm (0.5mR) 5W 1% Metal Strip Kelvin Current Shunts, 2512",2512 (6332 Metric),3,,Resistor_SMD:R_2512_6332Metric
+D1,SMCJ28A,Bourns Inc.,"28V Standoff, 31.1V Breakdown, 45.4V Clamp 1500W TVS Diode, DO-214AB",DO-214AB (SMC),1,,Diode_SMD:D_SMC
+D_USB,SS14-E3/61T,Vishay Semiconductor,"40V 1A High-Reliability Schottky Power Barrier Rectifier Diode, DO-214AC",DO-214AC (SMA),1,,Diode_SMD:D_SMA
+TH1,NCU18XH103J60RB,Murata Manufacturing,"10k Ohm NTC Thermistor 1% for Power Bridge Thermal Monitoring, 0603",0603 (1608 Metric),1,,Resistor_SMD:R_0603_1608Metric
+C_BULK,EEU-FR1H102,Panasonic Industry,"1000uF 50V Ultra-Low ESR Radial Aluminum Electrolytic, D16mm, Pitch 7.5mm (On-Board)",Radial Can (D16mm P7.5mm),1,,Capacitor_THT:CP_Radial_D16.0mm_P7.50mm
+"C_IN1,C_IN2,C_IN3,C_IN4,C_IN5,C_IN6",CC1206KKX5R9BB106,YAGEO,10uF 50V X5R Ceramic Multilayer DC-Link High-Frequency Decoupling Capacitor 1206,1206 (3216 Metric),6,,Capacitor_SMD:C_1206_3216Metric
+"C_BOOT1,C_BOOT2,C_BOOT3",C0603C104K3RACTU,KEMET,100nF 25V X7R Ceramic Gate Driver Floating Bootstrap Capacitor 0603,0603 (1608 Metric),3,,Capacitor_SMD:C_0603_1608Metric
+"C_VDD1,C_VDD2,C_VDD3,C_VDD4,C_MCU1,C_MCU2,C_MCU3,C_MCU4",C0603C104K3RACTU,KEMET,100nF 25V X7R Ceramic Bypass Decoupling Capacitor for MCU & Transceivers 0603,0603 (1608 Metric),8,,Capacitor_SMD:C_0603_1608Metric
+C_GVDD,CC1206KKX5R9BB106,YAGEO,10uF 50V X5R Local GVDD Bypass for DRV8300 (10x C_BOOT rule) 1206,1206 (3216 Metric),1,,Capacitor_SMD:C_1206_3216Metric
+C_10V_BUCK_IN,CC1206KKX5R9BB106,YAGEO,10uF 50V X5R Input Filter for LMR36510 Buck Regulator 1206,1206 (3216 Metric),1,,Capacitor_SMD:C_1206_3216Metric
+"C_10V_BUCK_OUT1,C_10V_BUCK_OUT2",CC1206KKX5R9BB106,YAGEO,10uF 50V X5R Output Filter Bank for 10V Gate Supply Rail 1206,1206 (3216 Metric),2,,Capacitor_SMD:C_1206_3216Metric
+"C_5V_IN,C_5V_OUT,C_3V3_IN,C_3V3_OUT,C_ANA1",C0603C105K4RACTU,KEMET,"1uF 16V X7R Ceramic Bypass for 5V, 3.3V LDOs and VDDA Island 0603",0603 (1608 Metric),5,,Capacitor_SMD:C_0603_1608Metric
+"C_FLT_U,C_FLT_V,C_FLT_W,C_DIFF_S1,C_DIFF_S2,C_DIFF_S3",C0603C102K5RACTU,KEMET,1nF 50V X7R Ceramic High-Frequency Filter for BEMF Dividers & Shunts 0603,0603 (1608 Metric),6,,Capacitor_SMD:C_0603_1608Metric
+R_GATEBUCK_TOP,RC0603FR-07100KL,YAGEO,100k Ohm 1% Upper Feedback Resistor for 10V Buck Rail 0603,0603 (1608 Metric),1,,Resistor_SMD:R_0603_1608Metric
+R_GATEBUCK_BOT,RC0603FR-0711KL,YAGEO,11.0k Ohm 1% Lower Feedback Resistor (Sets ~10.1V output) 0603,0603 (1608 Metric),1,,Resistor_SMD:R_0603_1608Metric
+FB1,BLM18PG601SN1D,Murata Manufacturing,Ferrite Bead 600 Ohm @ 100MHz 1A for Isolated VDDA Analog Rail Island 0603,0603 (1608 Metric),1,,Inductor_SMD:L_0603_1608Metric
+R_GATE1-R_GATE6,RC0603FR-0710RL,YAGEO,10 Ohm 1% 0.1W Thick Film MOSFET Gate Slew Damping Resistor 0603,0603 (1608 Metric),6,,Resistor_SMD:R_0603_1608Metric
+"R_PD1-R_PD6,R_PD5_SW,R_PD6_BOOT,R_TH_BIAS",RC0603FR-0710KL,YAGEO,"10k Ohm 1% Gate Bleeders, SW1 Pull-down, and NTC Bias Resistors 0603",0603 (1608 Metric),9,,Resistor_SMD:R_0603_1608Metric
+"R_PU_U,R_PU_V,R_PU_W,R_TOP",RC0603FR-0733KL,YAGEO,33k Ohm 1% High-Side Resistors for BEMF and VBAT Voltage Dividers 0603,0603 (1608 Metric),4,,Resistor_SMD:R_0603_1608Metric
+"R_PD_U,R_PD_V,R_PD_W,R_BOT",RC0603FR-073K3L,YAGEO,3.3k Ohm 1% Low-Side Resistors for BEMF and VBAT Dividers (Provides ~2.33V ADC at 25.6V),0603 (1608 Metric),4,,Resistor_SMD:R_0603_1608Metric
+R_FLT_S1-R_FLT_S6,RC0603FR-07100RL,YAGEO,100 Ohm 1% Shunt Kelvin Differential Noise Filter Resistor 0603,0603 (1608 Metric),6,,Resistor_SMD:R_0603_1608Metric
+"R_CC1,R_CC2",RC0603FR-075K1L,YAGEO,5.1k Ohm 1% USB Type-C Sink Configuration Pull-Down Resistor 0603,0603 (1608 Metric),2,,Resistor_SMD:R_0603_1608Metric
+R_CAN_TERM1,RC0805FR-07120RL,YAGEO,120 Ohm CAN Differential Bus Solder-Jumper Selectable Terminator 0805,0805 (2012 Metric),1,,Resistor_SMD:R_0805_2012Metric
+"R_LED1,R_LED2",RC0603FR-071KL,YAGEO,1k Ohm 1% Current Limiting Bias Resistor for Indicator LEDs 0603,0603 (1608 Metric),2,,Resistor_SMD:R_0603_1608Metric
+R_BLEED,RC1206FR-075K6L,YAGEO,5.6k Ohm 1% 0.25W Fast Bus Bleeder (Dissipates 117mW @ 25.6V) 1206,1206 (3216 Metric),1,,Resistor_SMD:R_1206_3216Metric
+LED1,APT1608SGC,Kingbright,Green SMD LED 568nm (3.3V Power Rail Active Indicator) 0603,0603 (1608 Metric),1,,LED_SMD:LED_0603_1608Metric
+LED2,APT1608QBC/D,Kingbright,Blue SMD LED 470nm (ESC Armed / Status & Fault Diagnostic Indicator) 0603,0603 (1608 Metric),1,,LED_SMD:LED_0603_1608Metric
