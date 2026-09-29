@@ -1,52 +1,80 @@
 {
-  "board": {
-    "design_settings": {
-      "rules": {
-        "min_clearance": 0.15,
-        "min_track_width": 0.2,
-        "min_via_annular_ring": 0.15,
-        "min_via_diameter": 0.6
-      }
-    }
-  },
   "meta": {
     "filename": "RUDRAKINUXIS_Lite.kicad_pro",
-    "version": 1
+    "version": 3
   },
-  "net_classes": [
-    {
-      "name": "Default",
-      "clearance": 0.15,
-      "track_width": 0.2
-    },
-    {
-      "name": "Gate_Drive",
-      "clearance": 0.2,
-      "track_width": 0.35
-    },
-    {
-      "name": "CAN_Differential",
-      "clearance": 0.2,
-      "track_width": 0.25,
-      "diff_pair_width": 0.25,
-      "diff_pair_gap": 0.2
-    },
-    {
-      "name": "Current_Sense_Kelvin",
-      "clearance": 0.2,
-      "track_width": 0.25,
-      "diff_pair_width": 0.25,
-      "diff_pair_gap": 0.2
-    },
-    {
-      "name": "Power_Heavy",
-      "clearance": 0.4,
-      "track_width": 2.5
-    },
-    {
-      "name": "Motor_Phases",
-      "clearance": 0.45,
-      "track_width": 3.0
+  "net_settings": {
+    "classes": [
+      {
+        "name": "Default",
+        "clearance": 0.15,
+        "track_width": 0.2,
+        "via_dia": 0.6,
+        "via_drill": 0.3
+      },
+      {
+        "name": "Gate_Drive",
+        "clearance": 0.2,
+        "track_width": 0.35,
+        "via_dia": 0.6,
+        "via_drill": 0.3
+      },
+      {
+        "name": "CAN_Differential",
+        "clearance": 0.2,
+        "track_width": 0.25,
+        "diff_pair_width": 0.25,
+        "diff_pair_gap": 0.2,
+        "via_dia": 0.6,
+        "via_drill": 0.3
+      },
+      {
+        "name": "Current_Sense_Kelvin",
+        "clearance": 0.2,
+        "track_width": 0.25,
+        "diff_pair_width": 0.25,
+        "diff_pair_gap": 0.2,
+        "via_dia": 0.6,
+        "via_drill": 0.3
+      },
+      {
+        "name": "Power_Heavy",
+        "clearance": 0.4,
+        "track_width": 2.5,
+        "via_dia": 0.8,
+        "via_drill": 0.4
+      },
+      {
+        "name": "Motor_Phases",
+        "clearance": 0.45,
+        "track_width": 3.0,
+        "via_dia": 0.8,
+        "via_drill": 0.4
+      }
+    ]
+  },
+  "pcbnew": {
+    "last_paths": {
+      "gencad": "",
+      "idf": "",
+      "netlist": "",
+      "specctra_dsn": "",
+      "step": "",
+      "vrml": ""
     }
+  },
+  "schematic": {
+    "annotate_start_num": 1,
+    "drawing": {
+      "default_line_thickness": 6,
+      "default_text_size": 50,
+      "field_names": []
+    }
+  },
+  "sheets": [
+    [
+      "12dc7a41-ecb8-49d1-b359-cba0cac5942e",
+      ""
+    ]
   ]
 }
