@@ -1,5 +1,3 @@
-I am trying to built a ESC for UAVs & robotics which is powered by STM32G431 MCU, to get best of control and programming support and it have features solderless heavy-duty screw terminals for motor and power both and an isolated 6-pin flight controller bus (DroneCAN/DShot), to connect to any flight controller and a USB-C for firmware flashing & PC tuning and also have a autonomous 4-stage hardware test button, and the main it is built on fully wired 4-layer PCB to get zero wireless attack vectors.
-
 <h1 align="center">
   <br>
   <img src="https://github.com/RaviKachhwaha/RUDRAKINUXIS-Lite/blob/main/docs/images/RUDRAKINUXIS_Lite_3D_front_image.png" alt="docs/images/RUDRAKINUXIS_Lite_3D_front_image.png">
