@@ -38,19 +38,19 @@ Here are the schematic design,
 - **SWD debug header** - 5-pin port for direct ST-Link firmware flashing and live debugging.
 
 ## PCB Design 
-| ![](https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/docs/images/pcb_layout_2d..png) |
+| ![](https://github.com/RaviKachhwaha/RUDRAKINUXIS-Lite/blob/main/docs/images/pcb_layout_2d.png) |
 |--- |  
 
 
- ### The PCB is 4 layers with dimensions 000x00mm, made to be easily useable for anyone.  
+ ### The PCB is 4 layers with dimensions 78.5000 x 55.0000 mm, made to be easily useable for anyone.  
 
  ### All the PCB files are [here](https://github.com/RaviKachhwaha/RUDRAKINUXIS-Lite/blob/main/hardware) 
 
 | Front Layer | Inner Layer 1 |
 | --- | --- |
-| ![](https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/docs/images/pcb_layout_top_layer..png) | ![](https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/docs/images/pcb_layout_2nd_layer..png) |
+| ![](https://github.com/RaviKachhwaha/RUDRAKINUXIS-Lite/blob/main/docs/images/pcb_layout_top_layer.png) | ![](https://github.com/RaviKachhwaha/RUDRAKINUXIS-Lite/blob/main/docs/images/pcb_layout_2nd_layer.png) |
 | Inner Layer 2 | Bottom layer |
-| ![](https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/docs/images/pcb_layout_3nd_layer..png) | ![](https://github.com/RaviKachhwaha/AuraForge-50X/blob/main/docs/images/pcb_layout_bottom_layer..png) |
+| ![](https://github.com/RaviKachhwaha/RUDRAKINUXIS-Lite/blob/main/docs/images/pcb_layout_3rd_layer.png) | ![](https://github.com/RaviKachhwaha/RUDRAKINUXIS-Lite/blob/main/docs/images/pcb_layout_bottom_layer.png) |
 
 ## Pinout  
 
