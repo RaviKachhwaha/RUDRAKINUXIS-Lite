@@ -48,7 +48,8 @@ void Telemetry_CLI_Init(void) {
                             LL_DMA_MEMORY_INCREMENT | LL_DMA_PDATAALIGN_BYTE |
                             LL_DMA_MDATAALIGN_BYTE | LL_DMA_PRIORITY_LOW);
 
-  LL_DMA_SetPeriphAddress(DMA1, LL_DMA_CHANNEL_2, (uint32_t)&(USART1->TDR));
+  LL_DMA_SetPeriphAddress(DMA1, LL_DMA_CHANNEL_2,
+                          (uint32_t)(uintptr_t)&(USART1->TDR));
 
   /* Route USART1 TX request to DMA1 Channel 2 via DMAMUX */
   LL_DMAMUX_SetRequestID(DMAMUX1, LL_DMAMUX_CHANNEL_1, LL_DMAMUX_REQ_USART1_TX);
@@ -80,7 +81,8 @@ bool Telemetry_CLI_Printf(const char *format, ...) {
 
   /* Configure and trigger DMA transfer */
   LL_DMA_DisableChannel(DMA1, LL_DMA_CHANNEL_2);
-  LL_DMA_SetMemoryAddress(DMA1, LL_DMA_CHANNEL_2, (uint32_t)g_cli.tx_buffer);
+  LL_DMA_SetMemoryAddress(DMA1, LL_DMA_CHANNEL_2,
+                          (uint32_t)(uintptr_t)g_cli.tx_buffer);
   LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_2, (uint32_t)len);
   LL_DMA_EnableChannel(DMA1, LL_DMA_CHANNEL_2);
 

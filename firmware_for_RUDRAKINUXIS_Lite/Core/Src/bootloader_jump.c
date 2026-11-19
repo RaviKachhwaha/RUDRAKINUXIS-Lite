@@ -62,7 +62,7 @@ void Bootloader_CheckAndJump(void) {
     uint32_t bootloader_entry =
         *(__IO uint32_t *)(STM32G4_SYSTEM_MEMORY_ADDR + 4U);
 
-    pFunction JumpToBootloader = (pFunction)bootloader_entry;
+    pFunction JumpToBootloader = (pFunction)(uintptr_t)bootloader_entry;
 
     /* Set Main Stack Pointer (MSP) to Bootloader stack */
     __set_MSP(bootloader_msp);

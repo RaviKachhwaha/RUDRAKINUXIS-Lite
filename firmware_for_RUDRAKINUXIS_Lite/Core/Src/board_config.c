@@ -41,7 +41,7 @@ void Board_SystemClock_Config(void) {
   /* Configure Flash Pre-fetch buffer and 4 Wait States (required for 170 MHz
    * at 3.3V) */
   LL_FLASH_EnablePrefetch();
-  LL_FLASH_EnableInstructionCache();
+  LL_FLASH_EnableInstCache();
   LL_FLASH_EnableDataCache();
   LL_FLASH_SetLatency(LL_FLASH_LATENCY_4);
 
@@ -209,6 +209,12 @@ void Board_GPIO_Init(void) {
   gpio_init.Pull = LL_GPIO_PULL_DOWN;
   gpio_init.Alternate = DSHOT_INPUT_AF;
   LL_GPIO_Init(GPIOA, &gpio_init);
+
+  /*--- 11. 5-Pin SWD Programming & Debug Interface (ST-Link V2 / V3) ---*/
+  /* SWDIO (PA13) and SWCLK (PA14) are preserved in their default AF0 (SWD) state.
+   * Pin 7 is hardware NRST (System Reset) with internal pull-up filter.
+   * Both PA13 and PA14 are strictly protected and never repurposed as standard GPIOs,
+   * guaranteeing reliable SWD flashing and full "Connect Under Reset" recovery. */
 }
 
 /**
@@ -281,7 +287,7 @@ void Board_TIM1_PWM_Init(void) {
   bdtr_init.BreakState = LL_TIM_BREAK_ENABLE;
   bdtr_init.BreakPolarity = LL_TIM_BREAK_POLARITY_HIGH;
   bdtr_init.BreakFilter =
-      LL_TIM_BREAK_FILTER_FDIV1_N6; /* 6 clock digital glitch filter */
+      LL_TIM_BREAK_FILTER_FDIV2_N6; /* Digital glitch filter */
   bdtr_init.Break2State = LL_TIM_BREAK2_DISABLE;
   bdtr_init.AutomaticOutput = LL_TIM_AUTOMATICOUTPUT_DISABLE;
   LL_TIM_BDTR_Init(TIM1, &bdtr_init);
@@ -294,10 +300,9 @@ void Board_TIM1_PWM_Init(void) {
    */
   LL_TIM_SetTriggerOutput2(TIM1, LL_TIM_TRGO2_UPDATE);
 
-  /* Route internal Comparator COMP1 output to TIM1 BKIN for instant hardware
-   * cutoff */
-  LL_TIM_SetBreakInputSource(TIM1, LL_TIM_BREAK_INPUT_BKIN,
-                             LL_TIM_BKIN_SOURCE_BKIN_COMP1);
+  /* Route external BKIN pin and internal Comparator COMP1 output to TIM1 BKIN for instant hardware cutoff */
+  LL_TIM_EnableBreakInputSource(TIM1, LL_TIM_BREAK_INPUT_BKIN, LL_TIM_BKIN_SOURCE_BKIN);
+  LL_TIM_EnableBreakInputSource(TIM1, LL_TIM_BREAK_INPUT_BKIN, LL_TIM_BKIN_SOURCE_BKCOMP1);
 
   /* Generate an update event to force register transfer */
   LL_TIM_GenerateEvent_UPDATE(TIM1);
@@ -322,7 +327,7 @@ void Board_OPAMP_Init(void) {
   /* Inverting input: Internal PGA connected to internal resistor ladder */
   LL_OPAMP_SetInputInverting(OPAMP1, LL_OPAMP_INPUT_INVERT_CONNECT_NO);
   /* Gain: 16x */
-  LL_OPAMP_SetPGAGain(OPAMP1, LL_OPAMP_PGA_GAIN_16);
+  LL_OPAMP_SetPGAGain(OPAMP1, LL_OPAMP_PGA_GAIN_16_OR_MINUS_15);
   /* Internal connection to ADC1 Channel 3 */
   LL_OPAMP_Enable(OPAMP1);
 
@@ -330,7 +335,7 @@ void Board_OPAMP_Init(void) {
   /* Non-inverting input: VINP0 (PA7) */
   LL_OPAMP_SetInputNonInverting(OPAMP2, LL_OPAMP_INPUT_NONINVERT_IO0);
   LL_OPAMP_SetInputInverting(OPAMP2, LL_OPAMP_INPUT_INVERT_CONNECT_NO);
-  LL_OPAMP_SetPGAGain(OPAMP2, LL_OPAMP_PGA_GAIN_16);
+  LL_OPAMP_SetPGAGain(OPAMP2, LL_OPAMP_PGA_GAIN_16_OR_MINUS_15);
   /* Internal connection to ADC2 Channel 3 */
   LL_OPAMP_Enable(OPAMP2);
 
@@ -338,7 +343,7 @@ void Board_OPAMP_Init(void) {
   /* Non-inverting input: VINP0 (PB0) */
   LL_OPAMP_SetInputNonInverting(OPAMP3, LL_OPAMP_INPUT_NONINVERT_IO0);
   LL_OPAMP_SetInputInverting(OPAMP3, LL_OPAMP_INPUT_INVERT_CONNECT_NO);
-  LL_OPAMP_SetPGAGain(OPAMP3, LL_OPAMP_PGA_GAIN_16);
+  LL_OPAMP_SetPGAGain(OPAMP3, LL_OPAMP_PGA_GAIN_16_OR_MINUS_15);
   /* Internal connection to ADC2 Channel 1 */
   LL_OPAMP_Enable(OPAMP3);
 }
@@ -361,7 +366,6 @@ void Board_COMP_OCP_Init(void) {
    * Output: Active High, routed internally to TIM1 BKIN.
    */
   LL_COMP_InitTypeDef comp_init = {0};
-  comp_init.PowerMode = LL_COMP_POWERMODE_HIGHSPEED;
   comp_init.InputPlus = LL_COMP_INPUT_PLUS_IO1; /* OPAMP1 internal output */
   comp_init.InputMinus = LL_COMP_INPUT_MINUS_3_4VREFINT;
   comp_init.InputHysteresis = LL_COMP_HYSTERESIS_MEDIUM;
@@ -433,7 +437,7 @@ void Board_ADC_Dual_Init(void) {
   }
 
   /* Configure Dual ADC Common Mode: Injected Simultaneous Mode */
-  LL_ADC_SetMultimode(__LL_ADC_COMMON_INSTANCE(ADC1), LL_ADC_MULTI_INJ_SIMULT);
+  LL_ADC_SetMultimode(__LL_ADC_COMMON_INSTANCE(ADC1), LL_ADC_MULTI_DUAL_INJ_SIMULT);
 
   /*
    * Configure ADC1 Injected Channel:
@@ -503,9 +507,9 @@ void Board_ADC_Dual_Init(void) {
           LL_DMA_PDATAALIGN_HALFWORD | LL_DMA_MDATAALIGN_HALFWORD |
           LL_DMA_PRIORITY_MEDIUM);
 
-  LL_DMA_SetPeriphAddress(DMA1, LL_DMA_CHANNEL_1, (uint32_t)&(ADC1->DR));
+  LL_DMA_SetPeriphAddress(DMA1, LL_DMA_CHANNEL_1, (uint32_t)(uintptr_t)&(ADC1->DR));
   LL_DMA_SetMemoryAddress(DMA1, LL_DMA_CHANNEL_1,
-                          (uint32_t)g_adc_regular_buffer);
+                          (uint32_t)(uintptr_t)g_adc_regular_buffer);
   LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_1, ADC_REGULAR_BUFFER_SIZE);
 
   /* Route ADC1 to DMA1 Channel 1 using DMAMUX */

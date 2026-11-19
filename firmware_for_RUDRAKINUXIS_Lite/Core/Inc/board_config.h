@@ -292,6 +292,29 @@ extern "C" {
 #define DRV_ENABLE_HIGH() LL_GPIO_SetOutputPin(DRV_ENABLE_PORT, DRV_ENABLE_PIN)
 #define DRV_ENABLE_LOW() LL_GPIO_ResetOutputPin(DRV_ENABLE_PORT, DRV_ENABLE_PIN)
 
+/*--- 5-Pin SWD Programming & Debug Interface (ST-Link V2 / V3) ---*/
+/**
+ * @brief  Hardware 5-Pin Debug Header Configuration:
+ *         Pin 1: +3V3 (Target Reference Voltage from onboard 3.3V LDO)
+ *         Pin 2: SWDIO (Serial Wire Data Input/Output) -> PA13 (AF0)
+ *         Pin 3: SWCLK (Serial Wire Clock)            -> PA14 (AF0)
+ *         Pin 4: GND   (Common Digital Ground Reference)
+ *         Pin 5: NRST  (Hardware System Reset Line   -> Pin 7 / NRST)
+ *
+ * @note   Having the 5th pin (NRST) enables hardware "Connect Under Reset"
+ *         recovery, protecting the ESC against bricking if code halts or
+ *         enters an unexpected state, and allows automatic reset post-flash.
+ */
+#define SWD_SWDIO_PIN        LL_GPIO_PIN_13
+#define SWD_SWDIO_PORT       GPIOA
+#define SWD_SWDIO_AF         LL_GPIO_AF_0
+
+#define SWD_SWCLK_PIN        LL_GPIO_PIN_14
+#define SWD_SWCLK_PORT       GPIOA
+#define SWD_SWCLK_AF         LL_GPIO_AF_0
+
+#define SWD_NRST_PIN_NUMBER  (7U)  /* STM32G431CBU6 UFQFPN48 Pin 7 */
+
 /*============================================================================*/
 /*                      DMA BUFFER ALLOCATION SIZES                           */
 /*============================================================================*/
@@ -307,6 +330,9 @@ extern "C" {
 #define ADC_IDX_BEMF_W (3U)
 #define ADC_IDX_NTC (4U)
 #define ADC_IDX_VREFINT (5U)
+
+/* Global DMA Buffer for Regular ADC Channels */
+extern volatile uint16_t g_adc_regular_buffer[ADC_REGULAR_BUFFER_SIZE];
 
 /*============================================================================*/
 /*                      FUNCTION PROTOTYPES                                   */

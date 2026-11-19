@@ -1,0 +1,57 @@
+[
+  {
+    "directory": "c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite",
+    "command": "clang -DSTM32G431xx -DUSE_HAL_DRIVER -DUSE_FULL_LL_DRIVER -DARM_MATH_CM4 -D__FPU_PRESENT=1 -D__GNUC__=11 -D__ARM_ARCH_7EM__=1 -Ic:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Core/Inc -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/CMSIS/Include -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/CMSIS/Device/ST/STM32G4xx/Include -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/STM32G4xx_HAL_Driver/Inc -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast -Wno-unused-parameter -c Core/Src/board_config.c",
+    "file": "Core/Src/board_config.c"
+  },
+  {
+    "directory": "c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite",
+    "command": "clang -DSTM32G431xx -DUSE_HAL_DRIVER -DUSE_FULL_LL_DRIVER -DARM_MATH_CM4 -D__FPU_PRESENT=1 -D__GNUC__=11 -D__ARM_ARCH_7EM__=1 -Ic:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Core/Inc -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/CMSIS/Include -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/CMSIS/Device/ST/STM32G4xx/Include -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/STM32G4xx_HAL_Driver/Inc -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast -Wno-unused-parameter -c Core/Src/bootloader_jump.c",
+    "file": "Core/Src/bootloader_jump.c"
+  },
+  {
+    "directory": "c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite",
+    "command": "clang -DSTM32G431xx -DUSE_HAL_DRIVER -DUSE_FULL_LL_DRIVER -DARM_MATH_CM4 -D__FPU_PRESENT=1 -D__GNUC__=11 -D__ARM_ARCH_7EM__=1 -Ic:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Core/Inc -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/CMSIS/Include -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/CMSIS/Device/ST/STM32G4xx/Include -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/STM32G4xx_HAL_Driver/Inc -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast -Wno-unused-parameter -c Core/Src/canfd_interface.c",
+    "file": "Core/Src/canfd_interface.c"
+  },
+  {
+    "directory": "c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite",
+    "command": "clang -DSTM32G431xx -DUSE_HAL_DRIVER -DUSE_FULL_LL_DRIVER -DARM_MATH_CM4 -D__FPU_PRESENT=1 -D__GNUC__=11 -D__ARM_ARCH_7EM__=1 -Ic:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Core/Inc -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/CMSIS/Include -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/CMSIS/Device/ST/STM32G4xx/Include -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/STM32G4xx_HAL_Driver/Inc -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast -Wno-unused-parameter -c Core/Src/dshot_decoder.c",
+    "file": "Core/Src/dshot_decoder.c"
+  },
+  {
+    "directory": "c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite",
+    "command": "clang -DSTM32G431xx -DUSE_HAL_DRIVER -DUSE_FULL_LL_DRIVER -DARM_MATH_CM4 -D__FPU_PRESENT=1 -D__GNUC__=11 -D__ARM_ARCH_7EM__=1 -Ic:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Core/Inc -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/CMSIS/Include -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/CMSIS/Device/ST/STM32G4xx/Include -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/STM32G4xx_HAL_Driver/Inc -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast -Wno-unused-parameter -c Core/Src/foc_core.c",
+    "file": "Core/Src/foc_core.c"
+  },
+  {
+    "directory": "c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite",
+    "command": "clang -DSTM32G431xx -DUSE_HAL_DRIVER -DUSE_FULL_LL_DRIVER -DARM_MATH_CM4 -D__FPU_PRESENT=1 -D__GNUC__=11 -D__ARM_ARCH_7EM__=1 -Ic:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Core/Inc -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/CMSIS/Include -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/CMSIS/Device/ST/STM32G4xx/Include -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/STM32G4xx_HAL_Driver/Inc -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast -Wno-unused-parameter -c Core/Src/foc_math.c",
+    "file": "Core/Src/foc_math.c"
+  },
+  {
+    "directory": "c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite",
+    "command": "clang -DSTM32G431xx -DUSE_HAL_DRIVER -DUSE_FULL_LL_DRIVER -DARM_MATH_CM4 -D__FPU_PRESENT=1 -D__GNUC__=11 -D__ARM_ARCH_7EM__=1 -Ic:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Core/Inc -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/CMSIS/Include -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/CMSIS/Device/ST/STM32G4xx/Include -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/STM32G4xx_HAL_Driver/Inc -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast -Wno-unused-parameter -c Core/Src/main.c",
+    "file": "Core/Src/main.c"
+  },
+  {
+    "directory": "c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite",
+    "command": "clang -DSTM32G431xx -DUSE_HAL_DRIVER -DUSE_FULL_LL_DRIVER -DARM_MATH_CM4 -D__FPU_PRESENT=1 -D__GNUC__=11 -D__ARM_ARCH_7EM__=1 -Ic:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Core/Inc -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/CMSIS/Include -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/CMSIS/Device/ST/STM32G4xx/Include -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/STM32G4xx_HAL_Driver/Inc -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast -Wno-unused-parameter -c Core/Src/observer_smo.c",
+    "file": "Core/Src/observer_smo.c"
+  },
+  {
+    "directory": "c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite",
+    "command": "clang -DSTM32G431xx -DUSE_HAL_DRIVER -DUSE_FULL_LL_DRIVER -DARM_MATH_CM4 -D__FPU_PRESENT=1 -D__GNUC__=11 -D__ARM_ARCH_7EM__=1 -Ic:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Core/Inc -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/CMSIS/Include -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/CMSIS/Device/ST/STM32G4xx/Include -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/STM32G4xx_HAL_Driver/Inc -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast -Wno-unused-parameter -c Core/Src/safety_supervisor.c",
+    "file": "Core/Src/safety_supervisor.c"
+  },
+  {
+    "directory": "c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite",
+    "command": "clang -DSTM32G431xx -DUSE_HAL_DRIVER -DUSE_FULL_LL_DRIVER -DARM_MATH_CM4 -D__FPU_PRESENT=1 -D__GNUC__=11 -D__ARM_ARCH_7EM__=1 -Ic:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Core/Inc -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/CMSIS/Include -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/CMSIS/Device/ST/STM32G4xx/Include -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/STM32G4xx_HAL_Driver/Inc -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast -Wno-unused-parameter -c Core/Src/telemetry_cli.c",
+    "file": "Core/Src/telemetry_cli.c"
+  },
+  {
+    "directory": "c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite",
+    "command": "clang -DSTM32G431xx -DUSE_HAL_DRIVER -DUSE_FULL_LL_DRIVER -DARM_MATH_CM4 -D__FPU_PRESENT=1 -D__GNUC__=11 -D__ARM_ARCH_7EM__=1 -Ic:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Core/Inc -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/CMSIS/Include -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/CMSIS/Device/ST/STM32G4xx/Include -isystem c:/Users/Admin/Desktop/RUDRAKINUXIS_Lite/firmware_for_RUDRAKINUXIS_Lite/Drivers/STM32G4xx_HAL_Driver/Inc -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast -Wno-unused-parameter -c tests/test_native_c_firmware.c",
+    "file": "tests/test_native_c_firmware.c"
+  }
+]

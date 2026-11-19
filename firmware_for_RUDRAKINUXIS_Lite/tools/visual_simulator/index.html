@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RUDRAKINUXIS-Lite 6S 600W FOC ESC - Production Visual Simulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <!-- Top Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="logo-badge">
+          <span class="logo-icon">⚡</span>
+          <div class="logo-titles">
+            <h1>RUDRAKINUXIS-Lite <span class="tag-accent">6S 600W FOC</span></h1>
+            <p class="subtitle">STM32G431CBU6 @ 170MHz | TI DRV8300 | 24kHz SVPWM | Production Firmware</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-center">
+        <div class="system-pills">
+          <div class="pill" id="pill-foc-state">
+            <span class="pill-dot"></span>
+            <span class="pill-label">STATE:</span>
+            <span class="pill-value" id="val-foc-state">DISARMED</span>
+          </div>
+          <div class="pill" id="pill-mode">
+            <span class="pill-label">LOOP:</span>
+            <span class="pill-value" id="val-loop-mode">I-F RAMP</span>
+          </div>
+          <div class="pill" id="pill-isr-timing">
+            <span class="pill-label">ISR LATENCY:</span>
+            <span class="pill-value highlight-green" id="val-isr-time">5.09 µs / 8.0 µs</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <div class="led-indicators">
+          <div class="led-unit">
+            <div class="led-bulb led-green on" id="hw-led1"></div>
+            <span class="led-text">LED1 (3V3 PWR)</span>
+          </div>
+          <div class="led-unit">
+            <div class="led-bulb led-blue heartbeat" id="hw-led2"></div>
+            <span class="led-text">LED2 (STATUS)</span>
+          </div>
+        </div>
+        <button class="btn btn-primary" id="btn-open-flasher">💾 VIRTUAL IC FLASHER</button>
+        <button class="btn btn-danger" id="btn-kill-gates">ESTOP (KILL GATES)</button>
+      </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="dashboard-grid">
+      <!-- Column 1: Motor Visualizer & Power Telemetry -->
+      <section class="card panel-motor">
+        <div class="card-header">
+          <h2><span class="icon">🔄</span> Motor Dynamics & Flux Vector</h2>
+          <span class="badge" id="badge-rpm">0 RPM</span>
+        </div>
+        <div class="canvas-container">
+          <canvas id="motor-canvas" width="340" height="340"></canvas>
+          <div class="motor-overlay-stats">
+            <div class="stat-row">
+              <span>Electrical Angle (θₑ):</span>
+              <strong id="val-theta-elec">0.0°</strong>
+            </div>
+            <div class="stat-row">
+              <span>Mechanical Angle (θₘ):</span>
+              <strong id="val-theta-mech">0.0°</strong>
+            </div>
+            <div class="stat-row">
+              <span>BEMF Vector Magnitude:</span>
+              <strong id="val-bemf-mag">0.00 V</strong>
+            </div>
+            <div class="stat-row">
+              <span>SVPWM Current Sector:</span>
+              <strong class="highlight-cyan" id="val-svpwm-sector">Sector 1</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Telemetry Metrics Bar -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-label">BUS VOLTAGE</div>
+            <div class="metric-val" id="val-metric-vbus">24.00 <span class="unit">V</span></div>
+            <div class="metric-bar">
+              <div class="fill" id="bar-vbus" style="width: 80%;"></div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">PHASE CURRENT</div>
+            <div class="metric-val" id="val-metric-curr">0.00 <span class="unit">A</span></div>
+            <div class="metric-bar">
+              <div class="fill fill-cyan" id="bar-curr" style="width: 0%;"></div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">ELECTRICAL POWER</div>
+            <div class="metric-val" id="val-metric-pwr">0.0 <span class="unit">W</span></div>
+            <div class="metric-bar">
+              <div class="fill fill-purple" id="bar-pwr" style="width: 0%;"></div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">NTC TEMPERATURE</div>
+            <div class="metric-val" id="val-metric-temp">25.0 <span class="unit">°C</span></div>
+            <div class="metric-bar">
+              <div class="fill fill-yellow" id="bar-temp" style="width: 25%;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Column 2: Live Multi-Channel Oscilloscope & Packet Monitor -->
+      <section class="card panel-scope">
+        <div class="card-header scope-header">
+          <div class="scope-titles">
+            <h2><span class="icon">📈</span> High-Speed Signal Oscilloscope (24 kHz)</h2>
+          </div>
+          <div class="scope-tabs">
+            <button class="tab-btn active" data-channel="phase">Phases (Iu, Iv, Iw)</button>
+            <button class="tab-btn" data-channel="park">Park (Id, Iq)</button>
+            <button class="tab-btn" data-channel="clarke">Clarke (Iα, Iβ)</button>
+            <button class="tab-btn" data-channel="svpwm">SVPWM (CCR1, 2, 3)</button>
+            <button class="tab-btn" data-channel="smo">SMO BEMF (eα, eβ)</button>
+          </div>
+        </div>
+        <div class="scope-container">
+          <canvas id="scope-canvas" width="600" height="260"></canvas>
+          <div class="scope-legend" id="scope-legend">
+            <!-- Dynamic Legend items inserted via JS -->
+          </div>
+        </div>
+
+        <!-- Protocol Packet Inspector -->
+        <div class="packet-inspector">
+          <div class="inspector-section">
+            <div class="section-title">
+              <span>✈️ DShot300/600 Digital Engine</span>
+              <span class="status-pill status-ok" id="dshot-status-badge">SYNC OK</span>
+            </div>
+            <div class="packet-row">
+              <span class="p-label">Raw Frame:</span>
+              <span class="p-hex" id="dshot-raw-hex">0x0000 (0b0000000000000000)</span>
+            </div>
+            <div class="packet-row">
+              <span class="p-label">11-Bit Throttle:</span>
+              <span class="p-val" id="dshot-throttle-val">0 / 2047 (0.0%)</span>
+              <span class="p-label">Telemetry Req:</span>
+              <span class="p-val" id="dshot-telem-bit">NO</span>
+              <span class="p-label">CRC4:</span>
+              <span class="p-val highlight-green" id="dshot-crc-val">VALID (0x0)</span>
+            </div>
+            <div class="packet-row">
+              <span class="p-label">Bidirectional e-RPM Response:</span>
+              <span class="p-hex" id="dshot-erpm-hex">0xFFFF (0 eRPM)</span>
+            </div>
+          </div>
+
+          <div class="inspector-section">
+            <div class="section-title">
+              <span>🚗 CAN FD 1M/5M BRS Interface</span>
+              <span class="status-pill status-ok" id="can-status-badge">ONLINE</span>
+            </div>
+            <div class="packet-row">
+              <span class="p-label">TX Telemetry (0x201):</span>
+              <span class="p-hex" id="can-tx-payload">24000mV | 0cA | 0RPM | 25C | STAT:0x00</span>
+            </div>
+            <div class="packet-row">
+              <span class="p-label">RX Actuator (0x200):</span>
+              <span class="p-hex" id="can-rx-payload">CMD: 0.0% | ARM: 0</span>
+              <span class="p-label">TX Rate:</span>
+              <span class="p-val">50 Hz</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Column 3: Control Cockpit & Safety Stress Testing -->
+      <section class="card panel-controls">
+        <div class="card-header">
+          <h2><span class="icon">🎮</span> Control Cockpit & Safety Matrix</h2>
+        </div>
+
+        <div class="control-box">
+          <div class="throttle-control">
+            <div class="control-row-header">
+              <label for="slider-throttle">Command Throttle:</label>
+              <span class="slider-display" id="disp-throttle">0.0% (0)</span>
+            </div>
+            <input type="range" id="slider-throttle" min="0" max="2047" value="0" step="1">
+          </div>
+
+          <div class="button-row">
+            <button class="btn btn-primary" id="btn-arm-toggle">ARM ESC</button>
+            <button class="btn btn-secondary" id="btn-clear-faults">CLEAR FAULTS</button>
+          </div>
+        </div>
+
+        <!-- Safety Supervisor Stress Testing -->
+        <div class="fault-injection-box">
+          <h3>⚡ Hardware & Fault Injection Testing</h3>
+
+          <div class="slider-group">
+            <div class="control-row-header">
+              <label for="slider-vbus">DC Bus Voltage (UVLO &lt; 18V / OVP &gt; 26.5V):</label>
+              <span class="slider-display" id="disp-vbus">24.0 V</span>
+            </div>
+            <input type="range" id="slider-vbus" min="16.0" max="28.0" value="24.0" step="0.1">
+          </div>
+
+          <div class="slider-group">
+            <div class="control-row-header">
+              <label for="slider-load">Inverter Phase Current Load (SW OCP &gt; 55A / HW &gt; 65A):</label>
+              <span class="slider-display" id="disp-load">0.0 A</span>
+            </div>
+            <input type="range" id="slider-load" min="0.0" max="70.0" value="0.0" step="0.5">
+          </div>
+
+          <div class="slider-group">
+            <div class="control-row-header">
+              <label for="slider-temp">NTC Temperature (Derate &gt; 85°C / Cutoff &gt; 105°C):</label>
+              <span class="slider-display" id="disp-temp">25.0 °C</span>
+            </div>
+            <input type="range" id="slider-temp" min="20.0" max="120.0" value="25.0" step="1.0">
+          </div>
+
+          <div class="injection-buttons">
+            <button class="btn btn-outline" id="btn-inject-stall">HOLD ROTOR (STALL)</button>
+            <button class="btn btn-outline" id="btn-inject-sigloss">CUT SIGNAL (WATCHDOG)</button>
+            <button class="btn btn-warning" id="btn-bootloader-jump">TRIGGER BOOTLOADER (0xDEADBEEF)</button>
+          </div>
+        </div>
+
+        <!-- Active Fault Status -->
+        <div class="fault-status-box" id="box-faults">
+          <div class="fault-title">ACTIVE SAFETY FLAGS:</div>
+          <div class="fault-tags" id="fault-tags-container">
+            <span class="fault-tag ok">NO FAULTS ACTIVE</span>
+          </div>
+        </div>
+
+        <!-- Serial CLI Console -->
+        <div class="cli-console">
+          <div class="cli-title">
+            <span>💻 USART1 Serial CLI (115200 Baud)</span>
+            <button class="btn-tiny" id="btn-cli-clear">Clear</button>
+          </div>
+          <div class="cli-output" id="cli-output">
+            <div class="cli-line">RUDRAKINUXIS-Lite Serial CLI Ready. Type 'HELP' for commands.</div>
+          </div>
+          <div class="cli-input-row">
+            <input type="text" id="cli-input" placeholder="Enter CLI command (e.g. STATUS, ARM, SET_IQ 20)...">
+            <button class="btn btn-small" id="btn-cli-send">SEND</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal for Virtual IC Flashing & Silicon Verification -->
+    <div class="modal-overlay hidden" id="modal-flasher">
+      <div class="modal-content flasher-modal-content">
+        <div class="flasher-header">
+          <div class="flasher-title">
+            <span class="icon">🔬</span>
+            <h3>STM32G431CBU6 Virtual Silicon Hardware Flasher</h3>
+          </div>
+          <button class="btn-tiny" id="btn-close-flasher-top">✕</button>
+        </div>
+
+        <div class="flasher-body">
+          <!-- Virtual IC Chip Graphic -->
+          <div class="ic-chip-view">
+            <div class="ic-silicon" id="ic-chip-silicon">
+              <div class="ic-dot"></div>
+              <div class="ic-markings">
+                <div class="ic-brand">ST ARM</div>
+                <div class="ic-part">STM32G431</div>
+                <div class="ic-pkg">CBU6 @ 170MHz</div>
+                <div class="ic-lot">128K FLASH | 32K RAM</div>
+              </div>
+            </div>
+            <div class="ic-pins-status">
+              <div class="pin-status-row"><span class="pin-dot pin-green" id="pin-vdd"></span> VDD (3.31V)</div>
+              <div class="pin-status-row"><span class="pin-dot pin-blue" id="pin-swdio"></span> SWDIO (PA13)</div>
+              <div class="pin-status-row"><span class="pin-dot pin-blue" id="pin-swclk"></span> SWCLK (PA14)</div>
+              <div class="pin-status-row"><span class="pin-dot pin-yellow" id="pin-nrst"></span> NRST (RESET)</div>
+            </div>
+          </div>
+
+          <!-- Programmer Console & Log -->
+          <div class="flasher-console-box">
+            <div class="flasher-progress-bar">
+              <div class="progress-fill" id="flash-progress-fill" style="width: 0%;"></div>
+            </div>
+            <div class="progress-label" id="flash-progress-label">Ready. Target detected via SWD (ID: 0x468).</div>
+
+            <div class="flasher-terminal" id="flasher-terminal">
+              <div class="term-line">ST-Link v3 High-Speed Virtual Debugger Connected.</div>
+              <div class="term-line">Target: STM32G431CBU6 (Cortex-M4 with FPU, Rev 1.0).</div>
+              <div class="term-line">Device ID: 0x468 | Flash: 128 KB | SRAM1: 32 KB.</div>
+              <div class="term-line highlight-green">Status: Ready to flash RUDRAKINUXIS-Lite production firmware.</div>
+            </div>
+          </div>
+
+          <!-- Flash Memory Hex Viewer -->
+          <div class="hex-viewer-box">
+            <div class="hex-title">Virtual Flash Memory Map (0x08000000):</div>
+            <pre class="hex-dump" id="hex-dump-view">
+0x08000000:  00 80 00 20 09 01 00 08 21 01 00 08 25 01 00 08  |... ....!...%...| (MSP: 0x20008000, Reset: 0x08000109)
+0x08000010:  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  |................|
+0x08000020:  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  |................|
+0x08000030:  00 00 00 00 00 00 00 00 00 00 00 00 55 01 00 08  |............U...| (SysTick: 1kHz Safety)
+0x08000080:  00 00 00 00 00 00 00 00 81 01 00 08 00 00 00 00  |................| (ADC1_2_IRQn: 24kHz FOC)
+0x08000100:  52 55 44 52 41 4B 49 4E 55 58 49 53 2D 4C 69 74  |RUDRAKINUXIS-Lit|
+0x08000110:  65 5F 36 53 5F 36 30 30 57 5F 46 4F 43 5F 45 53  |e_6S_600W_FOC_ES|
+            </pre>
+          </div>
+        </div>
+
+        <div class="flasher-actions">
+          <button class="btn btn-primary" id="btn-start-flash">⚡ FLASH FIRMWARE TO VIRTUAL IC</button>
+          <button class="btn btn-secondary" id="btn-mass-erase">MASS ERASE FLASH (0xFF)</button>
+          <button class="btn btn-outline" id="btn-close-flasher">CLOSE</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Bootloader Jump Notification -->
+    <div class="modal-overlay hidden" id="modal-bootloader">
+      <div class="modal-content">
+        <div class="modal-icon">🚀</div>
+        <h3>ST Factory ROM Bootloader Jumped!</h3>
+        <p>Magic key <code>0xDEADBEEF</code> was successfully written to <code>TAMP->BKP0R</code>.</p>
+        <p>Microcontroller system reset executed. Memory remapped to System Flash (<code>0x1FFF0000</code>). Main Stack
+          Pointer initialized.</p>
+        <p class="highlight-green">Device is now ready for USB-C DFU flashing via STM32CubeProgrammer!</p>
+        <button class="btn btn-primary" id="btn-close-modal">DISMISS / REBOOT TO USER CODE</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="simulator.js"></script>
+</body>
+
+</html>

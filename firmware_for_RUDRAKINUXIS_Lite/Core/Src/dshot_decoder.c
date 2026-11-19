@@ -62,8 +62,10 @@ void DShot_Decoder_Init(void) {
           LL_DMA_PDATAALIGN_HALFWORD | LL_DMA_MDATAALIGN_HALFWORD |
           LL_DMA_PRIORITY_VERYHIGH);
 
-  LL_DMA_SetPeriphAddress(DMA1, LL_DMA_CHANNEL_5, (uint32_t)&(TIM2->CCR1));
-  LL_DMA_SetMemoryAddress(DMA1, LL_DMA_CHANNEL_5, (uint32_t)g_dshot.dma_buffer);
+  LL_DMA_SetPeriphAddress(DMA1, LL_DMA_CHANNEL_5,
+                          (uint32_t)(uintptr_t)&(TIM2->CCR1));
+  LL_DMA_SetMemoryAddress(DMA1, LL_DMA_CHANNEL_5,
+                          (uint32_t)(uintptr_t)g_dshot.dma_buffer);
   LL_DMA_SetDataLength(DMA1, LL_DMA_CHANNEL_5, DSHOT_DMA_BUFFER_SIZE);
 
   /* Map TIM2_CH1 request to DMA1 Channel 5 via DMAMUX */
