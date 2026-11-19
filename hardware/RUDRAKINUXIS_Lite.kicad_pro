@@ -39,9 +39,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.8,
-          "height": 1.27,
-          "width": 1.27
+          "drill": 0.55,
+          "height": 0.55,
+          "width": 0.55
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -60,7 +60,7 @@
           "hatch_smoothing_level": 0,
           "hatch_smoothing_value": 0.1,
           "hatch_thickness": 1.0,
-          "min_clearance": 0.5,
+          "min_clearance": 0.0,
           "min_island_area": 5.0,
           "min_thickness": 0.25,
           "pad_connection": 2,
@@ -88,8 +88,8 @@
       ],
       "drc_exclusions": [
         [
-          "unconnected_items|143675000|74500000|F.Cu|4|86c09550-64ad-4079-942f-74bdc2ca9eed|1149d7f6-852c-47d1-9ee2-f291cdba2c0d",
-          "This is not connected only the net name is same."
+          "unconnected_items|145260000|78740000|F.Cu|4|e023f176-d2ad-4226-bd84-469b962794c1|86c09550-64ad-4079-942f-74bdc2ca9eed",
+          "This both will not connect only both net name is same."
         ]
       ],
       "meta": {
@@ -747,7 +747,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "gerbers/",
       "specctra_dsn": "",
       "step": "",
       "vrml": ""
