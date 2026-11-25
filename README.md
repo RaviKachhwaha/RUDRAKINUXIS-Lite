@@ -59,6 +59,8 @@ This is a general pinout
 | ![](https://github.com/RaviKachhwaha/RUDRAKINUXIS-Lite/blob/main/docs/images/Pin_Outs.png) | 
 | --- | 
 
+Note :- Sorry, I am not able to create it's Pinout image due to storage issues in my PC, but I will create and upload pinout image as soon as possible.
+
 (Credits to KiCad EDA for KiCad 10, STMicroelectronics for the STM32G4 MCU, Texas Instruments for the DRV8300 gate driver, and Hack Club for funding to make this possible.)
 
 (Thanks to hack Club for funding.) 
