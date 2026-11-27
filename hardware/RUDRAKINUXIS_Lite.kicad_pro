@@ -88,7 +88,7 @@
       ],
       "drc_exclusions": [
         [
-          "unconnected_items|145260000|78740000|F.Cu|4|1149d7f6-852c-47d1-9ee2-f291cdba2c0d|86c09550-64ad-4079-942f-74bdc2ca9eed",
+          "unconnected_items|145260000|78740000|F.Cu|4|e023f176-d2ad-4226-bd84-469b962794c1|86c09550-64ad-4079-942f-74bdc2ca9eed",
           "This both will not connect only both net name is same."
         ]
       ],
