@@ -749,7 +749,7 @@
       "netlist": "",
       "plot": "gerbers/",
       "specctra_dsn": "",
-      "step": "",
+      "step": "RUDRAKINUXIS_Lite.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
